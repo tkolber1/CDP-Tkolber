@@ -6,7 +6,8 @@ name: TestingActions
 jobs:
 
   build-and-deploy:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
+    # runs-on: ubuntu-latest
     steps: 
     - name: Install Azure cli
       run: |
