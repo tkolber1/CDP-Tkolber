@@ -1,8 +1,10 @@
-#Note: the 'AZURE_SP' secret is required to be added into GitHub Secrets. See this blog post for details: https://samlearnsazure.blog/2019/12/13/github-actions/
+# File: .github/workflows/workflow.yml
+
+# on: [push]
 on: workflow_dispatch
-name: TestingActions
-#env:
-#  FWTaskType: Start
+
+name: AzurePowerShellLoginSample
+
 jobs:
 
   build-and-deploy:
