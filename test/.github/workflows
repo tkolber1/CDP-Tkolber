@@ -1,8 +1,8 @@
 #Note: the 'AZURE_SP' secret is required to be added into GitHub Secrets. See this blog post for details: https://samlearnsazure.blog/2019/12/13/github-actions/
 on: workflow_dispatch
-
-env:
-  FWTaskType: Start
+name: TestingActions
+#env:
+#  FWTaskType: Start
 jobs:
 
   build-and-deploy:
