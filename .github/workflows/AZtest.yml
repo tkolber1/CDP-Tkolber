@@ -14,4 +14,5 @@ jobs:
         creds: ${{secrets.AZURE_CREDENTIALS}}
         enable-AzPSSession: true 
     - run: |
+        install-module -name az -force
         az group list
