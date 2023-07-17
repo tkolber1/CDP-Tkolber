@@ -1,0 +1,17 @@
+#Note: the 'AZURE_SP' secret is required to be added into GitHub Secrets. See this blog post for details: https://samlearnsazure.blog/2019/12/13/github-actions/
+on: workflow_dispatch
+name: TestingActions
+#env:
+#  FWTaskType: Start
+jobs:
+
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps: 
+    - name: Login via Az module
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS}}
+        enable-AzPSSession: true 
+    - run: |
+        az group list
