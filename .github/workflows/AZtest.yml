@@ -1,27 +1,19 @@
-#Note: the 'AZURE_SP' secret is required to be added into GitHub Secrets. See this blog post for details: https://samlearnsazure.blog/2019/12/13/github-actions/
+# File: .github/workflows/workflow.yml
+
+# on: [push]
 on: workflow_dispatch
-name: TestingActions
-#env:
-#  FWTaskType: Start
+
+name: AzurePowerShellLoginSample
+
 jobs:
 
   build-and-deploy:
-    # runs-on: self-hosted
     runs-on: ubuntu-latest
     steps: 
-#     - name: Install Azure cli
-#       run: |
-#           sudo apt-get install ca-certificates curl apt-transport-https lsb-release gnupg
-#           curl -sL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/microsoft.gpg > /dev/null
-#           AZ_REPO=$(lsb_release -cs)
-#           echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" | sudo tee /etc/apt/sources.list.d/azure-cli.list
-#           sudo apt-get update
-#           sudo apt-get install azure-cli
     - name: Login via Az module
       uses: azure/login@v1
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
         enable-AzPSSession: true 
     - run: |
-        install-module -name az -force
         az group list
